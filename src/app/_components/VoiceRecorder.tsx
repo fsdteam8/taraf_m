@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mic, Play, RotateCcw } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { useEdgeStore } from "@/lib/edgestore";
+import emailjs from "@emailjs/browser";
+import { Mic, Play, RotateCcw } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export default function VoiceRecorder() {
   const [isRecording, setIsRecording] = useState(false);
@@ -134,9 +134,7 @@ export default function VoiceRecorder() {
 
     const res = await edgestore.publicFiles.upload({
       file: audioFile,
-      options : {
-        
-      }
+      options: {},
     });
 
     console.log(res);
@@ -266,7 +264,7 @@ export default function VoiceRecorder() {
             id="agreement"
             checked={isAgreed}
             onCheckedChange={(checked) => setIsAgreed(checked as boolean)}
-            className="mt-1"
+            className="mt-1 border-white/70"
           />
           <label
             htmlFor="agreement"
